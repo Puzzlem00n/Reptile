@@ -107,7 +107,7 @@ function reptile.getSize() return tileSize end
 --Takes a table of rectangle coors, dimensions and velocities. Returns a
 --table with post-collision coors, velocities and normals for each axis.
 function reptile.collide(rect)
-	local x, y = rect.x, rect.y
+	local x, y = rect.l, rect.t
 	local nx, ny = 0
 	local w, h = rect.w, rect.h
 	local vx, vy = rect.vx, rect.vy
@@ -116,7 +116,7 @@ function reptile.collide(rect)
 	
 	y, vy, ny = collideNoTunnel(y,x,h,w,vy,true)
 	
-	return {x = x, y = y, vx = vx, vy = vy, nx = nx, ny = ny}
+	return {l = x, t = y, vx = vx, vy = vy, nx = nx, ny = ny}
 end
 
 --Converts pixel coordinates to grid coordinates and passes them to checkGrid.
