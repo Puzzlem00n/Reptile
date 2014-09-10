@@ -98,8 +98,8 @@ end
 
 --Public interface:
 
---Sets the size of each reptile in the grid.
-function reptile.setSize(x) tileSize = x return tileSize end
+--For now, sets the size of each reptile in the grid.
+function reptile.init(x) tileSize = x end
 
 --Gets the size of each reptile in the grid.
 function reptile.getSize() return tileSize end
