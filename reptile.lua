@@ -1,4 +1,4 @@
-local tile = {
+local reptile = {
 	_LICENSE = [[
     MIT LICENSE
 
@@ -36,11 +36,11 @@ end
 --Slightly faster version of math.min()
 local function min(a,b) return a < b and a or b end
 
---Decides how to order the parameters passed to tile.checkPoint to supposedly reduce
+--Decides how to order the parameters passed to reptile.checkPoint to supposedly reduce
 --complications. If axis is true, the x axis is being checked, and y otherwise.
 local function checkPointAxis(x, y, axis)
-	if axis then ans = tile.checkPoint(x, y)
-	else ans = tile.checkPoint(y, x) end
+	if axis then ans = reptile.checkPoint(x, y)
+	else ans = reptile.checkPoint(y, x) end
 	return ans
 end
 
@@ -98,15 +98,15 @@ end
 
 --Public interface:
 
---Sets the size of each tile in the grid.
-function tile.setSize(x) tileSize = x return tileSize end
+--Sets the size of each reptile in the grid.
+function reptile.setSize(x) tileSize = x return tileSize end
 
---Gets the size of each tile in the grid.
-function tile.getSize() return tileSize end
+--Gets the size of each reptile in the grid.
+function reptile.getSize() return tileSize end
 
 --Takes a table of rectangle coors, dimensions and velocities. Returns a
 --table with post-collision coors, velocities and normals for each axis.
-function tile.collide(rect)
+function reptile.collide(rect)
 	local x, y = rect.x, rect.y
 	local nx, ny = 0
 	local w, h = rect.w, rect.h
@@ -120,13 +120,13 @@ function tile.collide(rect)
 end
 
 --Converts pixel coordinates to grid coordinates and passes them to checkGrid.
-function tile.checkPoint(x, y)
-	return tile.checkGrid(math.floor(y/tileSize), math.floor(x/tileSize))
+function reptile.checkPoint(x, y)
+	return reptile.checkGrid(math.floor(y/tileSize), math.floor(x/tileSize))
 end
 
---OVERRIDABLE. Returns true if the given point on the tile grid is solid,
+--OVERRIDABLE. Returns true if the given point on the reptile grid is solid,
 --i.e. should be collided with.
-function tile.checkGrid(x, y)
+function reptile.checkGrid(x, y)
 end
 
-return tile
+return reptile
