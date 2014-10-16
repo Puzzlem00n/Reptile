@@ -98,10 +98,10 @@ end
 
 --Public interface:
 
---For now, sets the size of each reptile in the grid.
+--For now, sets the size of each tile in the grid.
 function reptile.setSize(x) tileSize = x end
 
---Gets the size of each reptile in the grid.
+--Gets the size of each tile in the grid.
 function reptile.getSize() return tileSize end
 
 --Takes a table of rectangle coors, dimensions and velocities. Returns a
@@ -124,7 +124,7 @@ function reptile.checkPoint(x, y)
 	return reptile.checkGrid(math.floor(y/tileSize), math.floor(x/tileSize))
 end
 
---OVERRIDABLE. Returns true if the given point on the reptile grid is solid,
+--OVERRIDABLE. Returns true if the given point on the tile grid is solid,
 --i.e. should be collided with.
 function reptile.checkGrid(x, y)
 end
